@@ -1,0 +1,55 @@
+<md-dialog >
+  <form>
+    <md-toolbar style="max-height:200px;max-width:800px;">
+      <img id="img_place_show" ng-src="images/museu.jpg" />
+      <div class="md-toolbar-tools"></div>
+    </md-toolbar>
+
+    <md-dialog-content style="max-width:800px;max-height:400px; z-index: 999; overflow: hidden;">
+      <md-tabs md-border-bottom md-dynamic-height="false">
+        <md-tab label="Informações">
+
+
+          <md-tab-label>
+            <md-icon md-svg-icon="images/icons/ic_info_white_24px.svg"></md-icon>
+            <b>Informações</b>
+          </md-tab-label>
+          <md-tab-body>
+            <md-content class="md-padding">
+              <div place-show></div>
+            </md-content>
+          </md-tab-body>
+
+
+        </md-tab>
+        <md-tab label="Comentários">
+
+
+          <md-tab-label>
+            <md-icon md-svg-icon="images/icons/ic_mode_comment_white_24px.svg" style:"float:right;"></md-icon>
+            <b>Comentários</b>
+          </md-tab-label>
+          <md-tab-body>
+            <md-content class="md-padding">
+              <div place-show></div>
+            </md-content>
+          </md-tab-body>
+
+
+        </md-tab>
+      </md-tabs>
+    </md-dialog-content>
+    <md-dialog-actions layout="row" style="max-width:800px;max-height:400px; z-index: 9999; overflow: hidden; background: white;">
+      <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+        More on Wikipedia
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="answer('not useful')" >
+        Not Useful
+      </md-button>
+      <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+        Useful
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

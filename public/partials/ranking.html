@@ -1,0 +1,102 @@
+<div layout="row" layout-xs="column">
+  <md-card flex layout="row" layout-xs="column">
+    <div class="tocha">
+      <img ng-src="images/litletoch.png"></img>
+    </div>
+      <md-card-content layout-align="left" class="md-padding">
+        <div layout="row" layout-align="left" class="mytocha"><h1>MINHA TORCHA</h1></div>
+        <div layout="row" layout-align="left" class="points-card"><h2 class="points">4.500</h2></div>
+        <div layout="row" layout-align="left" class="shared"><p>COMPARTILHE</p></div>
+        <div>
+            <center>
+                <md-icon md-svg-icon="images/icons/twitter-bird.svg" aria-label="android "></md-icon>
+                <md-icon md-svg-icon="images/icons/facebook-logo-c.svg" aria-label="android "></md-icon>
+                <md-icon md-svg-icon="images/icons/google-plus.svg" aria-label="android "></md-icon>
+            </center>
+        </div>
+      </md-card-content>
+  </md-card>
+  <md-card flex layout="row" layout-xs="column">
+    <div class="tocha">
+      <img ng-src="images/bigtoch.png"></img>
+    </div>
+      <md-card-content layout-align="left" class="md-padding">
+        <div layout="row" layout-align="left" class="mytocha"><h1>JOÃO PESSOA</h1></div>
+        <div layout="row" layout-align="left" class="points-card"><h2 class="points">125.457</h2></div>
+        <div layout="row" layout-align="left" class="shared"><p>COMPARTILHE</p></div>
+        <div>
+          <center>
+            <md-icon md-svg-icon="images/icons/twitter-bird.svg" aria-label="android "></md-icon>
+            <md-icon md-svg-icon="images/icons/facebook-logo-c.svg" aria-label="android "></md-icon>
+            <md-icon md-svg-icon="images/icons/google-plus.svg" aria-label="android "></md-icon>
+          </center>
+        </div>
+      </md-card-content>
+  </md-card>
+</div>
+
+  <!--<div layout-margin>
+
+    <md-card flex layout="row" layout-align="center">
+
+      <md-card-header>
+        <md-card-avatar>
+          <img src="images/trofeu.png"/>
+        </md-card-avatar>
+      </md-card-header>
+      <h2>RANKING</h2>
+    </md-card>
+  </div>-->
+
+<div ng-controller="listVirtual as rm" layout-margin layout="column" layout-xs="column" flex-order-xs class="virtualRepeatdemoDeferredLoading borda md-padding">
+
+  <center>
+    <img ng-src="images/trofeu.png" class="md-avatar">
+    <h1>RANKING</h1>
+  </center>
+  <div layout="row" layout-xs="column" flex-order-xs>
+    <div flex="noshrink" flex-order-xs style="margin-right: 2%;">
+      <md-virtual-repeat-container id="vertical-container" class="md-padding">
+        <md-list class="md-padding">
+          <b class="md-padding">#</b>
+          <b>Usuário</b>
+          <b style="float: right;">FOGO</b>
+        </md-list>
+        <div md-virtual-repeat="item in rm.dynamicItems" md-on-demand>
+          <md-list>
+            <md-list-item>
+            <b style="margin-right: 3%">{{item}}</b>
+            <!-- <img ng-show="rank.user.image" ng-src="{{rank.user.image}}" class="md-avatar"/>
+            <p ng-show="rank.user.name">{{rank.user.name}}</p>
+            <b ng-show="rank.user.score">{{rank.user.score}}</b> -->
+          </md-list-item>
+          <md-divider ></md-divider>
+        </md-list>
+        </div>
+
+    </md-virtual-repeat-container>  
+    </div>
+    <div flex="noshrink" flex-order-xs style="margin-right: 2%;" style="float: right;">
+      <md-virtual-repeat-container id="vertical-container" class="md-padding">
+        <md-list class="md-padding">
+            <b class="md-padding">#</b>
+            <b>CIDADE</b>
+            <b style="float: right;">FOGO</b>
+        </md-list>
+      <div md-virtual-repeat="item in rm.dynamicItems" md-on-demand>
+        <md-list>
+          <md-list-item ng-repeat="city in city.cities">
+          <b style="margin-right: 3%">{{item+1}}</b>
+          <!-- <img ng-src="images/ic.png" class="md-avatar"/> -->
+          <!-- <p ng-show="city.city.city">{{city.city.city}}</p>
+          <b ng-show="city.city.score">{{city.city.score}}</b> -->
+        </md-list-item>
+        <md-divider ></md-divider>
+      </md-list>
+      </div>
+    </md-virtual-repeat-container>
+    </div>
+    
+  </div>
+</div>
+

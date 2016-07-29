@@ -1,0 +1,39 @@
+<div class="borda" flex layout-padding>
+	<div>
+	<form name="userForm">
+		<label style="font-size: 20px;">Preço</label>
+		<label style="font-size: 20px; float:right;">{{color.red}}</label>
+		<md-slider-container>
+	  <md-slider flex min="0" max="255" ng-model="color.red" aria-label="red" id="red-slider">
+	  </md-slider>
+	</md-slider-container>
+	<div layout column  layout-xs="column">
+		<md-checkbox
+	      ng-model="data.cb1"            
+	      class="md-warn md-align-top-left" flex>
+	    Dinheiro<br/>
+	    <br/>
+	  </md-checkbox>
+	  <md-checkbox
+	      ng-model="data.cb2"            
+	      class="md-warn md-align-top-left" flex>
+	    Débito<br/>
+	    <br/>
+	  </md-checkbox>
+	  <md-checkbox
+	      ng-model="data.cb3"            
+	      class="md-warn md-align-top-left" flex>
+	    Cartão<br/>
+	    <br/>
+	  </md-checkbox>
+	</div>
+
+	<div>
+		<md-input-container class="md-block">
+	  	<input type="text" name="titulo" placeholder="Informações Extras">
+	  </md-input-container>
+	</div>
+
+	</form>
+	</div>
+</div>

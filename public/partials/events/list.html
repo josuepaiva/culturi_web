@@ -1,0 +1,34 @@
+<div layout="row" layout-xs="column" layout-wrap>
+  <md-card href="#show" class="response-card" ng-repeat="vm in vm.events" ng-click="showTabDialog($event, vm.event.id)">
+    <!--<img style="height: 300px; width: 100%" ng-show="vm.event.cover_url != null" src={{vm.event.cover_url}} class="md-card-image" alt="Washed Out">-->
+    <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url != null" src="{{vm.event.cover_url}}" class="md-card-image">
+    <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+    <!--<img  src="images/default-local.png" class="md-card-image" alt="Washed Out">-->
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{vm.event.title}}</span>
+          <span class="md-subhead">{{vm.event.address}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="start center">
+        <md-card-icon-actions>
+          <md-button class=" buttonDay md-raised md-primary" style="float: left background-color:red">Hoje</md-button>
+        </md-card-icon-actions>
+        <md-card-header layout="row" layout-align="center end">
+          <span style="text-align: right;">Por {{vm.event.owner.name}}</span>
+          <md-card-avatar>
+            <img src="images/ic.png"/>
+          </md-card-avatar>
+        </md-card-header>
+      </md-card-actions>
+  </md-card> 
+
+</div>
+
+<div id="teste">
+  
+</div>
+  <md-button ng-controller="registerDialog" class=" btn-cadastro md-fab md-primary md-hue-2" style="background-color: #87CEFA; position: absolute; float: right; top:100px; right:0px;" aria-label="Comment" 
+  ng-click="showRegister()">
+    <md-icon md-svg-src="images/icons/ic_add_white_24px.svg"></md-icon>
+  </md-button>

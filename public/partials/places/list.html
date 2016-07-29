@@ -1,0 +1,12 @@
+<div ng-controller="placesController as vm" layout="row" layout-xs="column" layout-wrap>
+  <md-card class="response-card" layout-xs="column" ng-repeat="vm in vm.places" ng-click="showTabDialog($place, vm.place.id)">
+    <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image">
+    <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url == null" src="images/museu.jpg" class="md-card-image">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{vm.place.title}}</span>
+          <span class="md-subhead">{{vm.place.address}}</span>
+        </md-card-title-text>
+      </md-card-title>
+  </md-card>
+</div>

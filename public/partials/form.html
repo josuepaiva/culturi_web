@@ -1,0 +1,321 @@
+<!-- <div class="borda" flex layout-padding>
+    <div>
+      <form name="userForm">
+      	<label style="font-size: 20px;">Categoria</label>
+          <md-input-container class="md-block">
+            <md-select ng-model="registro.id" ng-required="true">
+            
+              <md-option>
+               	Lugar
+              </md-option>
+              <md-option>
+              	Evento
+              </md-option>
+            </md-select>
+          </md-input-container>
+          <label style="font-size: 20px;">Título</label>
+          <md-input-container class="md-block">
+           <input type="text" name="titulo" ng-model="registro.title" ng-required="true">
+          </md-input-container>
+          <md-input-container class="md-block">
+          	<input type="text" name="titulo" placeholder="Descrição e/ou link" ng-model="registro.description">
+          </md-input-container>
+      </form>
+    </div>
+</div>
+
+<div class="borda" flex layout-padding>
+	<div>
+	<form name="userForm">
+		<label style="font-size: 20px;">Preço</label>
+		<label style="font-size: 20px; float:right;">{{registro.price}}</label>
+		<md-slider-container>
+	  <md-slider flex min="0" max="255" ng-model="registro.price" aria-label="red" id="red-slider">
+	  </md-slider>
+	</md-slider-container>
+
+	<label>Formas de Pagamento</label>
+	<div layout column  layout-xs="column">
+		<md-checkbox
+	      ng-model="registro.dinheiro"            
+	      class="md-warn md-align-top-left" flex>
+	    Dinheiro<br/>
+	    <br/>
+	  </md-checkbox>
+	  <md-checkbox
+	      ng-model="registro.debito"            
+	      class="md-warn md-align-top-left" flex>
+	    Débito<br/>
+	    <br/>
+	  </md-checkbox>
+	  <md-checkbox
+	      ng-model="registro.cartao"            
+	      class="md-warn md-align-top-left" flex>
+	    Cartão<br/>
+	    <br/>
+	  </md-checkbox>
+	</div>
+
+	<div>
+		<md-input-container class="md-block">
+	  	<input type="text" name="titulo" placeholder="Informações Extras" ng-model="registro.extra">
+	  </md-input-container>
+	</div>
+
+	</form>
+	</div>
+</div>
+
+<div class="borda" flex layout-padding>
+    <div flex>
+      <form name="userForm2">
+      	<div layout="row">
+      		<div flex>
+      			<md-icon md-svg-icon="images/icons/ic_schedule_black_24px.svg"></md-icon>
+      			<label style="font-size: 15px;">Dia Todo</label>	
+      		</div>
+      		<div flex>
+      			<md-switch style="float:right;" ng-model="registro.all_day"></md-switch>      		
+      		</div>	
+      	</div>
+      	<div>
+   			<span>Escolha a data de início</span>
+   			<md-datepicker ng-model="registro.initial_date" ng-required="true" md-placeholder="Escolha a data"></md-datepicker>
+      	</div>
+      	<div>
+      		<span>Escolha a data final da festa</span>
+   			<md-datepicker ng-model="registro.final_date" ng-required="true" md-placeholder="Escolha a data"></md-datepicker>
+ 
+      	</div>
+
+		 <div flex layout="row" style="margin-top: 10px; margin-bottom: 10px;">
+			<div layout="column" style="margin-right:10px;">
+				<md-icon md-svg-icon="images/icons/ic_history_black_24px.svg"></md-icon>
+			</div>
+			<div layout="column">
+				<md-input-container class="md-block">
+		            <md-select ng-model="registro.repeat" ng-required="true">
+		              <md-option>
+		               	Não se repete
+		              </md-option>
+		              <md-option>
+		              	Regularmente
+		              </md-option>
+		              <md-option>
+		              	Apenas uma vez
+		              </md-option>
+		              <md-option>
+		              	De segunda a domingo
+		              </md-option>
+		              <md-option>
+		              	Personalizado
+		              </md-option>
+		            </md-select>
+		          </md-input-container>
+			</div>
+		 </div>
+		 <div style="margin-top: 10px; margin-bottom: 10px;">
+			 <span>Horário Inicial</span>
+			 <input id="timeI" type="time" name="hora" ng-model="registro.time_initial">	
+		</div>
+		<div style="margin-top: 10px; margin-bottom: 10px;">
+			 <span>Horário Final</span>
+			 <input id="timeF" type="time" name="hora" ng-model="registro.time_final">	
+		</div>
+      </form>
+    </div>
+ </div>
+
+<div ng-controller="MyCtrl as vm">
+	<div class="borda" flex layout-padding>
+	<div flex >
+	  <span style="font-size:20px;">Localização</span>
+	  <!-- <form name="userForm2" "> 
+	  	<md-input-container class="md-block">
+	      	<input places-auto-complete size=80
+		    ng-model="registro.address"
+		    component-restrictions="{country:'br'}"
+		    types="{{types}}"
+		    on-place-changed="vm.placeChanged(register.address)" /> <br/> 
+	    </md-input-container>
+	  <!-- </form> -
+	</div>
+</div>
+
+<div class="borda" flex layout-padding>
+	<div flex>
+	  <span style="font-size:20px;">Foto</span>
+	  
+	  	<md-input-container class="md-block">
+	      	<input id="filefoto" type="file" ng-model="register.photo">
+	     </md-input-container>
+	
+	</div>
+</div>
+<div align="center">
+	<!-- <md-button style="float:center;"class="md-primary md-raised" ng-click="enviarForm(registro)">
+	Enviar
+	</md-button> -
+	<md-button ng-click="answer('useful', registro, vm.getLocation())" ng-disabled="!registro.id || !registro.title || !registro.initial_date || !registro.final_date || !registro.address || !registro.time_initial || !registro.time_final" style="float:center;" class="md-primary md-raised">
+        Enviar
+      </md-button>
+</div>
+</div> -->
+
+
+<form name="form" ng-controller="registerDialog">
+
+<div class="borda" flex layout-padding>
+    <div>
+      	<label style="font-size: 20px;">Categoria</label>
+          <md-input-container class="md-block">
+            <md-select ng-model="registro.id" ng-required="true">
+            
+              <md-option>
+               	Lugar
+              </md-option>
+              <md-option>
+              	Evento
+              </md-option>
+            </md-select>
+          </md-input-container>
+          <label style="font-size: 20px;">Título</label>
+          <md-input-container class="md-block">
+           <input type="text" name="titulo" ng-model="registro.title" ng-required="true">
+          </md-input-container>
+          <md-input-container class="md-block">
+          	<input type="text" name="titulo" placeholder="Descrição e/ou link" ng-model="registro.description">
+          </md-input-container>
+    </div>
+</div>
+
+<div class="borda" flex layout-padding>
+	<div>
+		<label style="font-size: 20px;">Preço</label>
+		<label style="font-size: 20px; float:right;">{{registro.price}}</label>
+		<md-slider-container>
+	  <md-slider flex min="0" max="255" ng-model="registro.price" aria-label="red" id="red-slider">
+	  </md-slider>
+	</md-slider-container>
+
+	<label>Formas de Pagamento</label>
+	<div layout column  layout-xs="column">
+		<md-checkbox
+	      ng-model="registro.dinheiro"            
+	      class="md-warn md-align-top-left" flex>
+	    Dinheiro<br/>
+	    <br/>
+	  </md-checkbox>
+	  <md-checkbox
+	      ng-model="registro.debito"            
+	      class="md-warn md-align-top-left" flex>
+	    Débito<br/>
+	    <br/>
+	  </md-checkbox>
+	  <md-checkbox
+	      ng-model="registro.cartao"            
+	      class="md-warn md-align-top-left" flex>
+	    Cartão<br/>
+	    <br/>
+	  </md-checkbox>
+	</div>
+
+	<div>
+		<md-input-container class="md-block">
+	  	<input type="text" name="titulo" placeholder="Informações Extras" ng-model="registro.extra">
+	  </md-input-container>
+	</div>
+	</div>
+</div>
+
+<div class="borda" flex layout-padding>
+    <div flex>
+      	<div layout="row">
+      		<div flex>
+      			<md-icon md-svg-icon="images/icons/ic_schedule_black_24px.svg"></md-icon>
+      			<label style="font-size: 15px;">Dia Todo</label>	
+      		</div>
+      		<div flex>
+      			<md-switch style="float:right;" ng-model="registro.all_day"></md-switch>      		
+      		</div>	
+      	</div>
+      	<div>
+   			<span>Escolha a data de início</span>
+   			<md-datepicker ng-model="registro.initial_date" ng-required="true" md-placeholder="Escolha a data"></md-datepicker>
+      	</div>
+      	<div>
+      		<span>Escolha a data final da festa</span>
+   			<md-datepicker ng-model="registro.final_date" ng-required="true" md-placeholder="Escolha a data"></md-datepicker>
+ 
+      	</div>
+
+		 <div flex layout="row" style="margin-top: 10px; margin-bottom: 10px;">
+			<div layout="column" style="margin-right:10px;">
+				<md-icon md-svg-icon="images/icons/ic_history_black_24px.svg"></md-icon>
+			</div>
+			<div layout="column">
+				<md-input-container class="md-block">
+		            <md-select ng-model="registro.repeat" ng-required="true">
+		              <md-option>
+		               	Não se repete
+		              </md-option>
+		              <md-option>
+		              	Regularmente
+		              </md-option>
+		              <md-option>
+		              	Apenas uma vez
+		              </md-option>
+		              <md-option>
+		              	De segunda a domingo
+		              </md-option>
+		              <md-option>
+		              	Personalizado
+		              </md-option>
+		            </md-select>
+		          </md-input-container>
+			</div>
+		 </div>
+		 <div style="margin-top: 10px; margin-bottom: 10px;">
+			 <span>Horário Inicial</span>
+			 <input id="timeI" type="time" name="hora" ng-model="registro.time_initial">	
+		</div>
+		<div style="margin-top: 10px; margin-bottom: 10px;">
+			 <span>Horário Final</span>
+			 <input id="timeF" type="time" name="hora" ng-model="registro.time_final">	
+		</div>
+    </div>
+ </div>
+
+<div ng-controller="MyCtrl as vm">
+	<div class="borda" flex layout-padding>
+	<div flex >
+	  <span style="font-size:20px;">Localização</span>
+	  	<md-input-container class="md-block">
+	      	<input places-auto-complete size=80
+		    ng-model="registro.address"
+		    component-restrictions="{country:'br'}"
+		    types="{{types}}"
+		    on-place-changed="vm.placeChanged(register.address)" /> <br/> 
+	    </md-input-container>
+	</div>
+	<div>
+		<span style="font-size:20px;">Foto</span>	
+	</div>
+
+	<button class="button" ngf-select ng-model="registro.file" name="file" ngf-pattern="'image/*'"
+		    ngf-accept="'image/*'" ngf-max-size="20MB" >
+		    Selecione a imagem
+	</button>
+
+	<div align="center" flex>
+  			<img ng-show="registro.file" ngf-thumbnail="registro.file">
+  	</div>
+  		
+	<div align="center">
+		<md-button ng-click="answer('useful', registro, vm.getLocation())" ng-disabled="!registro.id || !registro.title || !registro.initial_date || !registro.final_date || !registro.address || !registro.time_initial || !registro.time_final" style="float:center;" class="md-primary md-raised">
+	        Enviar
+	    </md-button>
+	</div>
+</div>
+</form>
+

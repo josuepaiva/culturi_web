@@ -1,0 +1,94 @@
+<!-- <aside id="sidebar">
+    <section id="widget_1">sidebar</section>
+    <section id="widget_2">sidebar</section>
+    <section id="widget_3">sidebar</section>
+</aside> -->
+<md-sidenav
+    class="md-sidenav-left sidenav back"
+    md-component-id="left"
+    md-is-locked-open="$mdMedia('gt-sm')"
+    md-disable-backdrop
+    md-whiteframe="4">
+  <md-toolbar class="md-theme-indigo side-bar-size sidenavtoolbar">
+  <div ng-controller="sideUser" layout="row" flex="100" class="ajuste">
+    <md-list-item class="md-2-line ajuste2">
+        <img ng-src="images/ic.png" class="md-avatar" style=" margin-left: 10px;width: 50px; height: 50px;">
+        <div class="md-list-item-text name-footer-solo">
+          <h4>renealves@lavid.ufpb.br</h4>
+        </div>
+    </md-list-item>
+    </div>
+    <div layout="row" flex="100">
+    <md-list-item class="md-2-line side-bar-toolbar-size ">
+        <img ng-src="images/icons/ic_whatshot_white_24dp_2x.png" style="width: 30px; height: 30px;" class="md-avatar">
+        <div class="md-list-item-text name-footer">
+          <h3>MINHA PONTUAÇÃO</h3>
+          <h4>1.500 Pontos</h4>
+        </div>
+    </md-list-item>
+
+    <md-list-item class="md-2-line side-bar-toolbar-size">
+        <img ng-src="https://scontent-gru2-1.xx.fbcdn.net/hphotos-frc1/v/t1.0-9/10665058_693202724089887_6386121323748717293_n.jpg?oh=9648d6aae3aac7ded84e75a801b726d3&oe=5772F6A3" style="width: 30px; height: 30px;" class="md-avatar">
+        <div class="md-list-item-text name-footer">
+          <h3>JOÃO PESSOA - JP</h3>
+          <h4>125.000 Pontos</h4>
+        </div>
+    </md-list-item>
+  </div>
+  </md-toolbar style="max-height: 50%;">
+  <md-content layout-padding ng-controller="LeftCtrl" class="menuSize back">
+    <md-button ng-click="close()" class="md-primary" hide-gt-sm>
+      Close Sidenav Left
+    </md-button>
+    <md-list-item href="#/" class="md-1-line menuAling"  ng-click="null">
+      <img ng-src="images/icons/ic_home_white_36px.svg" class="md-avatar" style="width: 20px;"/>
+      <div class="md-list-item-text menu-footer" layout="column">
+        <h3>Home</h3>
+      </div>
+    </md-list-item>
+
+
+    <md-divider class="divsize" ></md-divider>
+    <md-list-item href="#/ranking" class="md-1-line menuAling">
+      <img ng-src="images/icons/ic_whatshot_black_36px.svg" class="md-avatar" style="width: 20px;"/>
+      <div class="md-list-item-text menu-footer" layout="column">
+        <h3>Minha Tocha</h3>
+      </div>
+    </md-list-item>
+
+    <md-list-item  href="#/map" class="md-1-line menuAling">
+      <img ng-src="images/icons/ic_place_black_36px.svg" class="md-avatar" style="width: 20px;" />
+      <div class="md-list-item-text menu-footer" layout="column">
+        <h3>Mapa</h3>
+      </div>
+    </md-list-item>
+
+    <md-list-item href="#/events" class="md-1-line menuAling">
+      <img ng-src="images/icons/ic_event_black_36px.svg" class="md-avatar" style="width: 20px;"/>
+      <div class="md-list-item-text menu-footer" layout="column">
+        <h3>Evento</h3>
+      </div>
+    </md-list-item>
+    <md-divider class="divsize" ></md-divider>
+
+
+    <md-list-item href="#/torch" class="md-1-line menuAling">
+      <img ng-src="images/icons/ic_whatshot_black_36px.svg" class="md-avatar" style="width: 20px;"/>
+      <div class="md-list-item-text menu-footer" layout="column">
+        <h3>Tocha Olímpica</h3>
+      </div>
+    </md-list-item>
+    <md-list-item  href="#/ajuda" class="md-1-line menuAling"  ng-click="null">
+      <img ng-src="images/icons/ic_help_black_36px.svg" class="md-avatar" style="width: 20px;"/>
+      <div class="md-list-item-text menu-footer" layout="column">
+        <h3>Ajuda</h3>
+      </div>
+    </md-list-item>
+    <!-- <md-list-item class="md-1-line menuAling"  ng-click="null">
+      <img ng-src="images/icons/ic_help_black_36px.svg" class="md-avatar" style="width: 20px;"/>
+      <div class="md-list-item-text menu-footer" layout="column">
+        <h3>Sair</h3>
+      </div>
+    </md-list-item> -->
+  </md-content>
+</md-sidenav>

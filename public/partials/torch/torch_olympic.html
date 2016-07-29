@@ -1,0 +1,29 @@
+<div layout="row" class="md-padding">
+	<div flex="70">
+  		<ng-map style="height:700px;" info-window map-lazy-load="https://maps.google.com/maps/api/js" center="-34.397,150.644" zoom="10"></ng-map>
+	</div>
+	<md-content flex class="md-no-momentum" layout="column" layout-margin>
+		<md-whiteframe class="md-whiteframe-1dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center" >
+      <div layout="row">
+        <div flex>
+          <md-button class="flex md-fab md-primary md-hue-2" style="background-color: #B22222;">
+            {{data}}
+          </md-button>
+        </div>
+          
+      </div>
+      <div layout="column">
+        <div flex>
+          <span class="fontTorch">{{city}}</span>
+        </div>
+        <div flex>
+          <span>{{place}}</span>
+        </div>
+      </div>
+  		</md-whiteframe>
+
+  		<!-- <md-whiteframe class="md-whiteframe-1dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+    		<span>.md-whiteframe-1dp</span>
+  		</md-whiteframe> -->
+	</md-content>
+</div>

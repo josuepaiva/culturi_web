@@ -1,0 +1,24 @@
+<md-toolbar>
+    <div class="md-toolbar-tools toolbar-bar-collor" layout="row">
+      <!-- fill up the space between left and right area -->
+      <img ng-src="images/Logo.png" style="max-height: 50%;min-height: 40%;" ng-mousedown="callbutton()">
+      <md-input-container class="md-block inputAlinhamento" flex-gt-sm>
+        <label>Pesquisa...</label>
+        <input ng-model="user.firstName">
+      </md-input-container>
+      <md-button class="md-fab md-mini md-primary btn-footer-search" aria-label="Search " style="
+  margin: 0; ">
+        <md-icon md-svg-src="images/icons/ic_search_black_36px.svg" style="width: 13px;height:13px;"></md-icon>
+      </md-button>
+      <span flex></span>
+      <md-button class="md-icon-button resizeButton" aria-label="Facebook">
+        <md-icon md-svg-src = 'images/icons/facebook-logo.svg' style="width: 15px;height:15px;" ></md-icon>
+      </md-button>
+      <md-button class="md-icon-button buttonsize" aria-label="Instagram">
+        <md-icon md-svg-src = 'images/icons/instagram-logo.svg' style="width:15px;height:15px;"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button buttonsize" aria-label="Twitter">
+        <md-icon md-svg-src = 'images/icons/twitter-logo-on-black-background.svg' style="width:15px;height:15px;"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>

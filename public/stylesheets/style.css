@@ -1,0 +1,447 @@
+/* BEGIN DIALOG MATERIAL UI TO SHOW EVENTS. */
+
+/*.dialogdemoBasicUsage #popupContainer {
+  position: relative; 
+}
+.dialogdemoBasicUsage .footer {
+  width: 100%;
+  text-align: center;
+  margin-left: 20px; 
+}
+.dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
+  font-size: 0.8em;
+  margin-top: 50px; 
+}
+.dialogdemoBasicUsage button {
+  width: 200px; 
+}
+.dialogdemoBasicUsage div#status {
+  color: #c60008; 
+}*/
+
+/* END DIALOG MATERIAL UI TO SHOW EVENTS. */
+
+md-grid-list {
+	width: 100%;
+	height: 100%!important;
+}
+
+/* BEGIN SHOW BY ME */
+
+md-pagination-wrapper {
+  width: 100%!important;
+}
+
+md-tab-item {
+  width: 50%!important;
+}
+
+/* END SHOW BY ME */
+
+/*BEGIN HOME PAGE*/
+html {
+  overflow-y: hidden!important;
+}
+
+#image_index {
+  /*max-width: 100%;*/
+  background-size: 100% 100%;
+  background: url(../images/Home.png);
+}
+
+#transparent_layer {
+  float: right;
+  background-color: rgba(1,1,1,0.90);
+}
+
+.link_decoration {
+  text-decoration: none;
+}
+
+.link_decoration img{
+  width: 45%;
+  height: 45%;
+}
+
+#transparent_div {
+  padding: 10%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+.transparent_class {
+  color:white;
+  margin-top: 10%;
+}
+
+.transparent_class_first {
+  color:white;
+}
+
+.spacelink {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.index_space {
+  padding-top: 3%;
+}
+
+/*END HOME PAGE*/
+
+/* BEGIN EVENT SHOW PAGE*/
+
+#img_event_show {
+  max-width:100%;
+  height:315px;
+}
+
+md-tab-item > b {
+  color: #FFFFFF;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+}
+
+md-pagination-wrapper > md-ink-bar {
+  color: rgb(0,200,0);
+  background: rgb(0,200,0);
+}
+
+md-tabs-canvas {
+  top: 1px;
+}
+
+/* END EVENT SHOW PAGE*/
+
+/*BEGIN BUTTON STYLE DAY*/
+
+.buttonDay {
+  /*border-radius: 10px 10px 10px 10px;
+  /*background-color: red !important;*/
+  float: left;
+}
+
+/*END BUTTON STYLE DAY*/
+
+/* BEGIN PLACE SHOW PAGE*/
+
+#img_place_show {
+  max-width:100%;
+  height:315px;
+}
+
+/* END PLACE SHOW PAGE*/
+
+/* BEGIN EVENTS PAGE BY JOSUÉ*/
+
+  .buttonsize{
+    margin-left: -15px !important;
+  }
+  .inputAlinhamento{
+    margin-top: 33px;
+    margin-left: 2%;
+    width: 30% !important;
+  }
+
+  .toolbar-bar-collor{
+     /*background: #4F9004;*/
+    border-color: #4F9004;
+  }
+
+  .btn-footer-search{
+    background-color: #EDF0F2 !important;
+  }
+
+  .toolbar-bar-collor  label{
+      font-family: 'Hind', sans-serif;
+      font-size: 14px !important;
+      color: #EDF0F2;
+      font-weight: 400 !important;
+
+  }
+
+  .toolbar-bar-collor  input{
+      border-color: #EDF0F2;
+  }
+  .side-bar-size{
+    min-height: 150px;
+    height: 20%;
+  }
+  .side-bar-toolbar-size{
+    width: 50%;
+  }
+  .menuAling{
+    min-height: 40px;
+    height: 48px;
+    padding: 4px !important;
+  }
+  .menuSize{
+    height: auto;
+  }
+  .divsize{
+    padding: 0px !important;
+  }
+
+  .sidenav{
+    box-shadow: none !important;
+  }
+
+  .sidenavtoolbar{
+    /*background-color: #4F9004 !important;*/
+  }
+
+  .ajuste{
+    margin-top: 25px;
+    margin-bottom: 10px
+  }
+
+  .ajuste2{
+    margin-left: -3px;
+  }
+
+  .name-footer-solo{
+    margin-top: 20px !important;
+    margin-left: -2% !important;
+  }
+  .name-footer-solo h3{
+    font-family: 'Hind', sans-serif;
+    font-size: 17px !important;
+    color: #EDF0F2;
+    font-weight: 600 !important;
+  }
+
+.name-footer-solo h4{
+    font-family: 'Hind', sans-serif;
+    font-size: 14px !important;
+    color: #343129;
+    font-weight: 400 !important;
+}
+
+  .name-footer{
+    margin-top: 15px !important;
+    margin-left: -8% !important;
+  }
+
+  .name-footer h3{
+    font-family: 'Hind', sans-serif;
+    font-size: 9px !important;
+    color: #EDF0F2;
+    font-weight: 600 !important;
+  }
+
+  .name-footer h4{
+      font-family: 'Hind', sans-serif;
+      font-size: 11px !important;
+      color: #EDF0F2;
+      font-weight: 400 !important;
+  }
+
+  .menu-footer h3{
+    font-family: 'Hind', sans-serif;
+    font-size: 14px !important;
+    color: #343129;
+    font-weight: 600 !important;
+}
+
+.teste2{
+    position: fixed;
+    top: 52;
+    left: 0;
+    z-index: 10;
+}
+
+
+.classTeste{
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}
+
+  
+  @media only screen and (min-width:960px){
+        .inputAlinhamento{
+          margin-top: 33px;
+          margin-left: 205px;
+          width: 100%;
+        }
+    }
+
+   @media only screen and (max-width:960px) and (min-width: : 500px){
+        .inputAlinhamento{
+          margin-top: 33px;
+          margin-left: 10%;
+          width: 100%;
+        }
+    }
+
+/* END EVENTS PAGE BY JOSUÉ*/
+
+/* BEGIN CSS RANKING */
+
+.points{
+  font-size: 60px;
+}
+
+.fogo{
+  float: right;
+}
+
+.rastg{
+  float: left;
+}
+
+.borda{
+  box-sizing: border-box;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  background-color: white;
+} 
+
+.tocha{
+  margin-left: 15px;
+  margin-top: 19px;
+}
+
+.mytocha{
+  margin-top: 30px;
+}
+
+.points-card{
+  margin-top: -70px;
+}
+
+.shared{
+  margin-top: -50px;
+}
+
+.back{
+  background-color: rgba(238,238,238,1) !important;
+}
+
+/*END CSS RANKING*/
+
+
+.virtualRepeatdemoDeferredLoading #vertical-container {
+  height: 700px;
+  width: 100%;
+}
+
+.virtualRepeatdemoDeferredLoading .repeated-item {
+  padding-top: 10px; }
+
+.virtualRepeatdemoDeferredLoading md-content {
+  margin: 16px; }
+
+.virtualRepeatdemoDeferredLoading md-virtual-repeat-container {
+  border: none }
+
+.virtualRepeatdemoDeferredLoading .md-virtual-repeat-container .md-virtual-repeat-offsetter div {
+  padding-left: 16px; }
+
+.image-virtual{
+  height: 2px;
+  width: 24px;
+}
+
+.centro{
+  float: center;
+}
+
+.btn-cadastro{
+  position: absolute;
+  float: right;
+}
+
+.response-card{
+  width: 30%;
+}
+
+.response-card-index{
+  width: 50%;
+}
+
+b.textTab{
+  font-size: 10px;
+}
+
+@media only screen and (max-width:960px){
+  .response-card-index{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width:960px){
+  .response-card{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width:960px){
+  .textTab{
+  font-size: 10px;
+  }
+}
+
+.dialog-response {
+
+}
+
+.transparence{
+  opacity:0.65;
+  -moz-opacity: 0.65;
+  filter: alpha(opacity=65);
+}
+
+.back_div{
+  background-size: 100%;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-image: url('../images/lobao.jpg');
+  overflow: hidden;
+}
+
+.argin-without{
+  margin: 1px;
+
+}
+.div_tab{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.div-map{
+  background-color: rgb(250,250,250);
+  height: 150px;
+  width: 200px;
+  position: absolute;
+  top: 60px;
+  right: 321px;
+}
+.div-tranparent{
+    height: 300px;
+   filter:alpha(opacity=50);
+     opacity: 0.5;
+    -moz-opacity:0.5;
+    -webkit-opacity:0.5;
+}
+
+.buttom-map{
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+
+.fontTorch{
+  font-size: 18px;
+  font-weight: bold;
+}
+/*
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+*/

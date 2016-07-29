@@ -1,0 +1,184 @@
+<div layout=row layout-xs=column id="image_index" >
+	
+	<div flex></div>
+
+  <div id="transparent_layer" flex=40 flex-xs="100" layout="row" layout-align="end stretch">
+    <center id="transparent_div">      
+      <p class="transparent_class_first">BAIXE AGORA MESMO O CULTURI</p>
+      <p class="transparent_class">
+      	A melhor programação cultural do maior evento esportivo do mundo está disponível para Android e IOS.
+    	</p>
+      <div class="transparent_class">
+	      <a href="https://play.google.com/store" class="link_decoration spacelink">
+	        <img ng-src="images/google.png" >
+	      </a>
+	      <a href="https://www.apple.com/br/" class="link_decoration spacelink">
+	        <img src="images/apple.png" >
+	      </a>
+      </div>
+    </center>
+  </div>
+
+</div>
+
+<div class="index_space" layout=row>
+
+  <div flex="50" layout="column" layout-align="end start">
+    <h1>Eventos em Destaque</h1>
+  </div>
+
+  <div flex="50" layout="column" layout-align="end end">
+    <md-button href="#/events" class="md-raised md-primary" style="float:right;">Ver todos</md-button>
+  </div>
+
+</div>
+
+<div layout-xs="column" layout="row"  ng-cloak ng-controller="eventsController as vm">
+
+  <div hide show-gt-lg flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.events).slice(0, 5)" ng-click="showTabDialog($event, vm.event.id)">
+
+   <md-card flex>
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url != null" src="{{vm.event .cover_url}}" class="md-card-image">
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{vm.event.title}}</span>
+          <span class="md-subhead">{{vm.event.address}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="start center">
+        <md-card-icon-actions>
+          <md-button class=" buttonDay md-raised md-primary" style="float: left;">Hoje</md-button>
+        </md-card-icon-actions>
+        <md-card-header layout="row" layout-align="center end">
+          <span style="text-align: right;">Por {{vm.event.owner.name}}</span>
+          <md-card-avatar>
+            <img src="images/ic.png"/>
+          </md-card-avatar>
+        </md-card-header>
+      </md-card-actions>
+    </md-card>
+  </div>
+
+
+  <div flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.events).slice(0, 3)" ng-click="showTabDialog($event, vm.event.id)">
+
+   <md-card flex>
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url != null" src="{{vm.event .cover_url}}" class="md-card-image">
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{vm.event.title}}</span>
+          <span class="md-subhead">{{vm.event.address}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="start center">
+        <md-card-icon-actions>
+          <md-button class=" buttonDay md-raised md-primary" style="float: left;">Hoje</md-button>
+        </md-card-icon-actions>
+        <md-card-header layout="row" layout-align="center end">
+          <span style="text-align: right;">Por {{vm.event.owner.name}}</span>
+          <md-card-avatar>
+            <img src="images/ic.png"/>
+          </md-card-avatar>
+        </md-card-header>
+      </md-card-actions>
+    </md-card>
+  </div>
+
+</div>
+
+<div class="index_space" layout=row flex="initial">
+
+  <div flex="50" layout="column" layout-align="end start">
+    <h1>Lugares em Destaque</h1>
+  </div>
+
+  <div flex="50" layout="column" layout-align="end end">
+    <md-button href="#/places" class="md-raised md-primary" style="float:right">Ver todos</md-button>
+  </div>
+
+</div>
+
+
+
+
+
+<!-- Alterar aqui -->
+
+<div layout-xs="column" layout="row"  ng-cloak ng-controller="placesController as vm">
+  <div flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 3)" ng-click="showTabDialog($event, vm.place.id)">
+
+   <md-card flex>
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image">
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{vm.place.title}}</span>
+          <span class="md-subhead">{{vm.place.address}}</span>
+        </md-card-title-text>
+      </md-card-title>
+    </md-card>
+  </div>
+
+  <div hide show-gt-lg flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 5)" ng-click="showTabDialog($event, vm.places.id)">
+
+   <md-card flex>
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image">
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{vm.place.title}}</span>
+          <span class="md-subhead">{{vm.place.address}}</span>
+        </md-card-title-text>
+      </md-card-title>
+    </md-card>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--<div layout-xs="column" layout="row"  ng-cloak ng-controller="placesController as vm">
+  <div layout="column" layout-xs="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 3)" ng-click="showTabDialog($event, vm.place.id)">
+     <md-card flex layout-fill>
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image">
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <!--<img  ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image" alt="Washed Out">
+     <img src="images/museu.jpg" class="md-card-image" alt="Washed Out">-
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{vm.place.title}}</span>
+            <span class="md-subhead">{{vm.place.address}}</span>
+          </md-card-title-text>
+        </md-card-title>
+    </md-card>
+  </div>
+</div>-->
+
+
+<!--
+
+<div ng-cloak ng-controller="placesController as vm">
+
+  <md-content class="md-no-momentum" layout-xs="column" layout="row">
+      <md-card flex ng-repeat="vm in (vm.places).slice(0, 3)" ng-click="showTabDialog($event, vm.place.id)">
+        <!--<img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image" alt="Washed Out">
+        <img  src="images/default-local.png" class="md-card-image" alt="Washed Out">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{vm.place.title}}</span>
+            <span class="md-subhead">{{vm.place.address}}</span>
+          </md-card-title-text>
+        </md-card-title>
+      </md-card>
+  </md-content>
+
+</div>-->
