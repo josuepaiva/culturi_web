@@ -6,8 +6,8 @@
 
 var app =
 angular
-  .module('culturi', ['ngRoute', 'ngMaterial','ngMessages','ngMap','ngFileUpload'])
-  .run(['$http', add_required_header])
+  .module('culturi', ['ngRoute', 'ngMaterial','ngMessages','ngMap','ngFileUpload', 'ngCookies'])
+  .run(['$http','$rootScope', '$location', 'userService', add_required_header])
   .constant('culturiURL', {
       //PLACE_ID: '57233651938533059caaee8e/',
       PLACE_ID: '57840161e3c5073e9a7a4841/',
@@ -24,9 +24,8 @@ angular
   })
   .config(config)
 
-
 // Routes
-function config($routeProvider) {
+function config($routeProvider,$mdThemingProvider) {
   $routeProvider
     .when('/', {
       templateUrl   : 'partials/index.html'
@@ -38,7 +37,8 @@ function config($routeProvider) {
     .when('/me', {
       templateUrl   : 'partials/users/show.html',
       controller    : 'userController',
-      controllerAs  : 'vm'
+      controllerAs  : 'vm',
+      authenticated  : true
       //resolve: { loggedin: checkLoggedin }
     })
     .when('/events', {
@@ -60,11 +60,6 @@ function config($routeProvider) {
       templateUrl   : 'partials/map/map.html',
       controller    : 'filtroController'
     })
-    .when('/torch', {
-      templateUrl   : 'partials/torch/torch_olympic.html',
-      controller    : 'tochaOlimpica',
-      controllerAs  : 'tc'
-    })
     .when('/form', {
       templateUrl   : 'partials/form.html',
       controller    : 'MyCtrl'
@@ -73,9 +68,26 @@ function config($routeProvider) {
       templateUrl   : 'partials/teste_page.html',
       controller    : 'controllerTeste'
     })
+    .when('/logout', {
+      resolve : { check: logout_user }
+    })
     .otherwise({redirectTo  : '/'});
   
 };
+
+var convidado = true;
+
+
+function setConvidado(valor){
+  console.log("convidado setado para ", valor);
+  convidado = valor;
+};
+
+function getConvidado(){
+  //console.log("get valor", valor);
+  return convidado;
+};
+
 
 window.fbAsyncInit = function() {
     FB.init({
@@ -95,10 +107,22 @@ window.fbAsyncInit = function() {
    }(document, 'script', 'facebook-jssdk'));
 
 // Add header required to all requests
-function add_required_header($http){
+function add_required_header($http, $rootScope, $location, userService){
   //$http.defaults.headers.common['X-Tocha-Key'] = '7594fe2eef4d998649d83648256fccbecdb3fed6ef8ebcc66deafc7d62f155b8691c8a73462357d6c8a5ceb3b63a4c3603bdd39194773e761bed6b75e574eebc';
   $http.defaults.headers.common['X-Tocha-Key'] = 'TOCHABETA';
   $http.defaults.useXDomain = true;
+
+  $rootScope.$on('$routeChangeStart', function(event, next, current){
+
+    if(next.$$route.authenticated){
+        var token = userService.getAccessToken();
+        var email = userService.getAccessEmail();
+
+        if(!token || !email){
+          $location.path("/login");
+        }
+    }
+  })
 };
 
 
@@ -110,34 +134,7 @@ function checkLoggedin(userService){
     });
 };
 
-function getCookieAccess(campo){
-        var name = campo + "=";
-        var ca = document.cookie.split(';');
-        for(var i = 0; i <ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0)==' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length,c.length);
-            }
-        }
-        return "";
-};
 
-
-function teste(campo){
-  var name = campo + "=";
-        var ca = document.cookie.split(';');
-        for(var i = 0; i <ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0)==' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                console.log(c.substring(name.length,c.length));
-            }
-        }
-        console.log("nada");
-        // return "";
+function logout_user(userService){
+  return userService.logout();
 };

@@ -10,10 +10,10 @@
     .module('culturi')
     .service('userService', userService);
 
-  userService.$inject = ['$http', '$q', '$location', 'culturiURL'];
+  userService.$inject = ['$http', '$q', '$location', 'culturiURL', '$cookieStore'];
 
   /* recommended */
-  function userService($http, $q, $location, culturiURL){
+  function userService($http, $q, $location, culturiURL, $cookieStore){
 
     var user = this;
 
@@ -25,7 +25,13 @@
     // return available functions for use in the controllers
     return {
       getUserLoggedIn: getUserLoggedIn,
-      getUserStatus: getUserStatus
+      getUserStatus: getUserStatus,
+      getAccessToken: getAccessToken,
+      getAccessEmail: getAccessEmail,
+      setAccessToken: setAccessToken,
+      setAccessEmail: setAccessEmail,
+      getUserObj: getUserObj,
+      logout: logout
     };
 
     ////////////
@@ -102,6 +108,67 @@
       };
       
     };
+
+    function getAccessToken(){
+
+      var access_token = $cookieStore.get('access_token');
+
+      return access_token;
+
+    };
+
+    function setAccessToken(token_access) {
+
+      $cookieStore.put('access_token', token_access);
+
+    };
+
+    function getUserObj() {
+
+      var userObj = $cookieStore.get('userObj'); 
+
+      if(userObj){
+
+        return userObj;
+
+      }else{
+
+        console.log("Usuário nao encontrado!");
+
+      }
+
+    };
+
+    function setAccessEmail(email) {
+      
+      $cookieStore.put('access_email', email);
+
+    };
+
+    function getAccessEmail() {
+      
+      var user_email = $cookieStore.get('access_email');
+      return user_email;
+
+    };
+
+
+    function logout(){
+      $cookieStore.remove('access_token');
+      $cookieStore.remove('access_email');
+
+      $http.delete("https://tochabeta.api.culturi.com.br/api/auth/logout").
+        success(function(response){
+          console.log(response);
+          $location.path('/login');
+          window.alert("logout com success");
+        }).
+        error(function(error){
+          console.log("erro ");
+        });
+    };
+
+
 
   };
 })();

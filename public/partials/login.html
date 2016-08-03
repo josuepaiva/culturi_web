@@ -1,11 +1,32 @@
+<style>
+   .box {         
+              color:white;
+              padding:10px;
+              text-align:center;
+              border-style: inset;
+   }
+   .red {
+       background:red;
+   }
+   .orange {
+       background:orange;
+   }
+ </style>
+
+
 <h4 id="myModalLabel" class="modal-title">Entre no <b>Culturi</b></h4> Desenvolvido por <a target="_blank" href="http://lavid.ufpb.br/pt/quem_somos">LAViD</a>.
 <p>Faça Login pelas redes sociais a seguir:</p>
+
+<div layout="row">
+    <md-button class= "md-raised md-primary" ng-click="setConvidado(true)">Convidado</button>
+  </div>
 <div>
-	{{name}}
 	<h3 ng-show="name">{{name}}</h3>
     <h3 ng-show="email">{{email}}</h3>
     <h3 ng-show="score">{{score}}</h3>
 	<md-button class= "md-raised md-primary" ng-click="FBLogin()">Facebook</button>
+  
+
 	
 
 </div>

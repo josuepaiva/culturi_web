@@ -10,7 +10,7 @@
     md-disable-backdrop
     md-whiteframe="4">
   <md-toolbar class="md-theme-indigo side-bar-size sidenavtoolbar">
-  <div ng-controller="sideUser" layout="row" flex="100" class="ajuste">
+  <div layout="row" flex="100" class="ajuste">
     <md-list-item class="md-2-line ajuste2">
         <img ng-src="images/ic.png" class="md-avatar" style=" margin-left: 10px;width: 50px; height: 50px;">
         <div class="md-list-item-text name-footer-solo">
@@ -36,7 +36,7 @@
     </md-list-item>
   </div>
   </md-toolbar style="max-height: 50%;">
-  <md-content layout-padding ng-controller="LeftCtrl" class="menuSize back">
+  <md-content layout-padding ng-controller="LeftCtrl" layout="column" class="menuSize back">
     <md-button ng-click="close()" class="md-primary" hide-gt-sm>
       Close Sidenav Left
     </md-button>
@@ -46,7 +46,6 @@
         <h3>Home</h3>
       </div>
     </md-list-item>
-
 
     <md-divider class="divsize" ></md-divider>
     <md-list-item href="#/ranking" class="md-1-line menuAling">
@@ -71,24 +70,19 @@
     </md-list-item>
     <md-divider class="divsize" ></md-divider>
 
-
-    <md-list-item href="#/torch" class="md-1-line menuAling">
-      <img ng-src="images/icons/ic_whatshot_black_36px.svg" class="md-avatar" style="width: 20px;"/>
-      <div class="md-list-item-text menu-footer" layout="column">
-        <h3>Tocha Olímpica</h3>
-      </div>
-    </md-list-item>
     <md-list-item  href="#/ajuda" class="md-1-line menuAling"  ng-click="null">
       <img ng-src="images/icons/ic_help_black_36px.svg" class="md-avatar" style="width: 20px;"/>
       <div class="md-list-item-text menu-footer" layout="column">
         <h3>Ajuda</h3>
       </div>
     </md-list-item>
-    <!-- <md-list-item class="md-1-line menuAling"  ng-click="null">
+
+    <md-list-item ng-show="visible == false" href="#/logout" class="md-1-line menuAling" ng-click="null">
       <img ng-src="images/icons/ic_help_black_36px.svg" class="md-avatar" style="width: 20px;"/>
       <div class="md-list-item-text menu-footer" layout="column">
         <h3>Sair</h3>
       </div>
-    </md-list-item> -->
+    </md-list-item>
+   
   </md-content>
 </md-sidenav>

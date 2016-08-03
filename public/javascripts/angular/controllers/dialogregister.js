@@ -4,20 +4,20 @@
 	angular
 		.module('culturi')
 		.controller('registerDialog', registerDialog);
-
 		var PLACE_ID = "57840161e3c5073e9a7a4841";
 		var EVENT_ID = "57840161e3c5073e9a7a4842";
-		registerDialog.$inject = ['$scope', '$q', '$mdDialog', '$http', 'culturiURL', '$location', 'Upload'];
+		registerDialog.$inject = ['$scope', '$q', '$mdDialog', '$http', 'culturiURL', '$location', 'Upload','$mdMedia'];
 
-		function registerDialog($scope, $q, $mdDialog, $http, culturiURL, $location, Upload){
+		function registerDialog($scope, $q, $mdDialog, $http, culturiURL, $location, Upload,$mdMedia){
             var vm = this;
 
 			$scope.showRegister = showRegister;
 			$scope.hide = hide;
     		$scope.cancel = cancel;
     		$scope.answer = answer;
-            $scope.getFoto = getPhoto;0
-
+            $scope.getFoto = getPhoto;
+            $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+            $scope.visible = getConvidado();
 			function showRegister(){
 				return $mdDialog.show({
 					controller: registerDialog,
@@ -41,6 +41,7 @@
                     getPhoto(registro.file)
                         .then(function(reader){
                             // console.log(JSON.stringify(vm.photo));
+                        	console.log(reader);
                             return vm.photo = reader;
                         })
                         .then(function(){
@@ -103,7 +104,7 @@
 		    	var time_initial;
 		    	var horas;
 		    	var id_categorie;
-
+		    	
 		    	if(lo == undefined){
 		    		lat = 0;
 		    		lng = 0;
@@ -136,6 +137,7 @@
                  	"state"    : lo.state,
                  	"location" : [lat, lng],
                  	"cover"	   : vm.photo,
+                 	"extra_time_field" : "lkdksajdklsajk",
                  	"date_info" : {
                  	   "initial_date": initial_date,
 				       "final_date" : final_date, 
@@ -156,16 +158,20 @@
 				    }
                 };
 		    	
-		    	// $http.post(culturiURL.API_URL + culturiURL.HERITAGE_URL,json).
-		    	// 	success(function (response, status){
-		    	// 		window.alert( registro.id+" criado com Sucesso!");
-		    	// 	}).
-		    	// 	error(function(headers, config, data){
-		    	// 		window.alert("O "+registro.id+" não foi criado. Por favor tentar novamente.");
-		    	// 	});
-		    	// console.log(json);
+		    	$http.post(culturiURL.API_URL + culturiURL.HERITAGE_URL,json).
+		    		success(function (response, status){
+		    			window.alert( registro.id+" criado com Sucesso!");
+		    		}).
+		    		error(function(headers, config, data){
+		    			window.alert("O "+registro.id+" não foi criado. Por favor tentar novamente.");
+		    		});
+		    	console.log(json);
 
 		    	return json;
 		    };
 		};
 })();
+
+
+
+

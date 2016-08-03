@@ -60,7 +60,7 @@
           this.loadedPages[pageNumber] = [];
           var pageOffset = pageNumber * this.PAGE_SIZE;
           for (var i = pageOffset; i < pageOffset + this.PAGE_SIZE; i++) {
-            this.loadedPages[pageNumber].push($scope.user);
+            this.loadedPages[pageNumber].push(i);
           }
         }));
       };

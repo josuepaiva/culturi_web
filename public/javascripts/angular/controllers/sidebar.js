@@ -1,9 +1,9 @@
 angular
   .module('culturi')
-  .controller('sidebarController', function ($scope, $timeout, $mdSidenav, $log, userService) {
-    'use strict';
+  .controller('sidebarController', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.toggleLeft = buildDelayedToggler('left');
     $scope.toggleRight = buildToggler('right');
+    $scope.visible = getConvidado();
     $scope.isOpenRight = function(){
       return $mdSidenav('right').isOpen();
     };
@@ -65,10 +65,4 @@ angular
           $log.debug("close RIGHT is done");
         });
     };
-  }).controller('sideUser', function($scope){
-
-
-    
-    // console.log(getCookieAccess("culturiEmail"));
-      
   });
