@@ -44,7 +44,8 @@ function config($routeProvider,$mdThemingProvider) {
     .when('/events', {
       templateUrl   : 'partials/events/list.html',
       controller    : 'eventsController', 
-      controllerAs  : 'vm'
+      controllerAs  : 'vm',
+      resolve: {loggedin: checkLoggedin}
     })
     .when('/places', {
       templateUrl   : 'partials/places/list.html',
@@ -54,7 +55,8 @@ function config($routeProvider,$mdThemingProvider) {
     .when('/ranking', {
       templateUrl   : 'partials/ranking.html',
       controller    : 'rankingController',
-      controllerAs  : 'rank'
+      controllerAs  : 'rank',
+      resolve: {loggedin: checkLoggedin}
     })
     .when('/map', {
       templateUrl   : 'partials/map/map.html',
@@ -118,7 +120,7 @@ function add_required_header($http, $rootScope, $location, userService){
         var token = userService.getAccessToken();
         var email = userService.getAccessEmail();
 
-        if(!token || !email){
+         if(!token || !email){
           $location.path("/login");
         }
     }
@@ -127,11 +129,17 @@ function add_required_header($http, $rootScope, $location, userService){
 
 
 // Verfify if user is logged in
-function checkLoggedin(userService){
-  return userService.getUserStatus()
-    .then(function(response) {
-      return response;
-    });
+function checkLoggedin(userService, $http,$location){
+  var token = userService.getAccessToken();
+  var email = userService.getAccessEmail();
+
+  if(!token || !email){
+    $location.path("/login");
+  }else{
+    $http.defaults.headers.common['X-User-Email'] = email;
+    $http.defaults.headers.common['X-User-Token'] = token;
+  }
+
 };
 
 

@@ -2,23 +2,30 @@
 //"use strict";
 
 
-app.controller('rankingController', ['$scope','eventService' ,'$http', 'culturiURL', function($scope, eventService, $http, culturiURL){
+app.controller('rankingController', ['$scope','eventService' ,'$http', 'culturiURL', 'userService', function($scope, eventService, $http, culturiURL, userService){
 	
-	$scope.rank = this;
-	$scope.rank.users = [];
-	$scope.city = this;
-	$scope.city.cities = [];
-
 	var location = window.location;
+	var vm = this;
 
     if(location.hash == "#/ranking"){
     	var c_toolbar = document.getElementsByClassName("toolbar-bar-collor");
       	var c_menu = document.getElementsByClassName("sidenavtoolbar");
-     
-      	c_toolbar[0].style.background = "rgba(0,0,0,0.87";
-      	c_menu[0].style.background = "rgba(0,0,0,0.87";
+     	
+     	if(c_toolbar[0].style == null || c_menu[0].style == null){
+     		location.reload();
+     	}else{
+     		c_toolbar[0].style.background = "rgba(0,0,0,0.87";
+      		c_menu[0].style.background = "rgba(0,0,0,0.87";
+     	}
+      	
     }
-    
+
+    userService.getUserStatus().
+    	then(function(response){
+    		console.log(response);
+    		return vm.user = response;
+    });
+
 	// var getUsers = function(){
 
 	// 	console.log(culturiURL.API_URL+culturiURL.USERS_URL);

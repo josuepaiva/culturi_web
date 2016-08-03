@@ -18,6 +18,7 @@
             $scope.getFoto = getPhoto;
             $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
             $scope.visible = getConvidado();
+            
 			function showRegister(){
 				return $mdDialog.show({
 					controller: registerDialog,

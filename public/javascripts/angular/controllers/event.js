@@ -22,20 +22,30 @@
     /* jshint validthis: true */
     var vm = this;
     vm.events = [];
+    
+    var location = window.location;
 
     if(location.hash == "#/"){
       var c_toolbar = document.getElementsByClassName("toolbar-bar-collor");
       var c_menu = document.getElementsByClassName("sidenavtoolbar");
 
-      c_toolbar[0].style.background = "rgb(63,81,181)";
-      c_menu[0].style.background = "rgb(63,81,181)";
+      if(c_toolbar[0].style == null || c_menu[0].style == null){
+        location.reload();
+      }else{
+        c_toolbar[0].style.background = "rgb(63,81,181)";
+        c_menu[0].style.background = "rgb(63,81,181)";
+      }
 
     }else if(location.hash == "#/events"){
       var c_toolbar = document.getElementsByClassName("toolbar-bar-collor");
       var c_menu = document.getElementsByClassName("sidenavtoolbar");
 
-      c_toolbar[0].style.background = "#4F9004";
-      c_menu[0].style.background = "#4F9004";
+      if(c_toolbar[0].style == null || c_menu[0].style == null){
+        location.reload();
+      }else{
+        c_toolbar[0].style.background = "#4F9004";
+        c_menu[0].style.background = "#4F9004";
+      } 
     }
     // calling others submit function.
     $scope.showTabDialog = showTabDialog;

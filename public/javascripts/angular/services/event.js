@@ -21,11 +21,12 @@
     return ({
       getEvents: getEvents,
       getEvent: getEvent,
-      getRanking: getRanking
+      getRankingUsers: getRankingUsers,
+      getRankingCities: getRankingCities
     });
 
     ////////////
-    function getRanking(){
+    function getRankingUsers(){
       var deferred = $q.defer();
 
       $http.get(culturiURL.API_URL + culturiURL.USERS_URL).
@@ -45,6 +46,24 @@
                 
     };
     
+    function getRankingCities(){
+      var deferred = $q.defer();
+
+      $http.get(culturiURL.API_URL + culturiURL.CITIES_URL).
+        success(getUsersComplete)
+        .error(getUsersFailed);
+
+      return deferred.promise;
+
+      function getUsersComplete(response) {
+        deferred.resolve(response);
+      };
+
+      function getUsersFailed(error) {
+        console.log('MSG: Error on eventService request - getUsersFailed - ERROR: ');
+         // + error.statusText + ' - STATUS: ' + error.status);
+      };
+    };
     // GET events on API
     function getEvents(){
       

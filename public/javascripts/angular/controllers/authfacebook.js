@@ -16,7 +16,16 @@ app.controller("authFacebook", ['$scope','$http','$location', 'culturiURL', 'use
                        };
                        
                        userService.getUserLoggedIn(json).then(function(response){
-  
+
+                          var user = {
+                            "access_token" : response.user.access_token,
+                            "access_email" : response.user.email
+                          };
+
+                          // if(response.city == null && response.state == null){
+
+                          // }
+                          
                           userService.setAccessEmail(response.user.email);
                           userService.setAccessToken(response.access_token);
                           setConvidado(false);
@@ -32,13 +41,3 @@ app.controller("authFacebook", ['$scope','$http','$location', 'culturiURL', 'use
             },{scope: 'public_profile, email'});
         }
 }]);
-
-
-// var getPictureFacebook = function(facebookUserID){
-//       FB.api( "/"+facebookUserID+"/picture?type=large",function (response) {
-//             login.facebook["urlPicture"] = response.data.url;
-//             $scope.pictureClient = login.facebook["urlPicture"];
-//             $scope.$apply();
-//           }
-//       );  
-//     };

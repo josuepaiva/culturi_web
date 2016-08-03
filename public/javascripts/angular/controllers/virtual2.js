@@ -3,13 +3,11 @@
 
   angular
     .module('culturi')
-    .controller('listVirtual', function($timeout,$scope,eventService, $http, culturiURL) {
+    .controller('listVirtual2', function($timeout,$scope,eventService, $http, culturiURL) {
 
       // In this example, we set up our model using a class.
       // Using a plain object works too. All that matters
       // is that we implement getItemAtIndex and getLength.
-      var vm = this;
-      vm.users = [];
       var ct = this;
       ct.citys = [];
 
@@ -48,14 +46,6 @@
       DynamicItems.prototype.fetchPage_ = function(pageNumber) {
         // Set the page to null so we know it is already being fetched.
         this.loadedPages[pageNumber] = null;
-        
-
-        eventService.getRankingUsers().
-          then(function(response){
-            angular.forEach(response, function(value){
-            vm.users.push( { user :  value } );
-          });
-        });
 
         eventService.getRankingCities().
           then(function(response){
@@ -64,14 +54,14 @@
             });
           })
 
-        console.log("Usuários carregados",ct.lenght);
+        console.log("Cities carregados",ct);
 
         $timeout(angular.noop, 300).then(angular.bind(this, function() {
           this.loadedPages[pageNumber] = [];
           var pageOffset = pageNumber * this.PAGE_SIZE;
           for (var i = pageOffset; i < pageOffset + this.PAGE_SIZE; i++) {
 
-            this.loadedPages[pageNumber].push(vm.users[i]);
+            this.loadedPages[pageNumber].push(ct.citys[i]);
           }
         }));
       };
@@ -81,7 +71,7 @@
         // promise. In real code, this function would likely contain an
         // $http request.
         $timeout(angular.noop, 300).then(angular.bind(this, function() {
-          this.numItems = 8;
+          this.numItems = 2;
 
           }));
         };

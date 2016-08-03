@@ -125,7 +125,7 @@
 
     function getUserObj() {
 
-      var userObj = $cookieStore.get('userObj'); 
+      var userObj = $cookieStore.get('user'); 
 
       if(userObj){
 
@@ -134,6 +134,7 @@
       }else{
 
         console.log("Usuário nao encontrado!");
+        return null;
 
       }
 
