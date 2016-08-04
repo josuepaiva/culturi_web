@@ -4,6 +4,7 @@ angular
     $scope.toggleLeft = buildDelayedToggler('left');
     $scope.toggleRight = buildToggler('right');
     $scope.visible = getConvidado();
+
     $scope.isOpenRight = function(){
       return $mdSidenav('right').isOpen();
     };

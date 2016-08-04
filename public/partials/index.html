@@ -40,7 +40,9 @@
 
 
   <md-card flex>
-    <img style="height: 300px; width: 100%"  src="images/default-local.png" class="md-card-image" alta="Washed Out">
+    <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+    <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url != null" src="{{vm.event.cover_url}}" class="md-card-image" alta="Washed Out">
+
     <md-card-title>
       <md-card-title-text>
         <span class="md-headline">{{vm.event.title}}</span>
@@ -69,8 +71,8 @@
   <div hide show-gt-md  flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.events).slice(0, 3)" ng-click="showTabDialog($event, vm.event.id)">
 
    <md-card flex>
-     <!-- <img style="height: 300px; width: 100%" src="{{vm.event .cover_url}}" class="md-card-image"> -->
-     <img style="height: 300px; width: 100%" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url != null" src="{{vm.event.cover_url}}" class="md-card-image" alta="Washed Out">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{vm.event.title}}</span>
@@ -95,8 +97,8 @@
   <div hide show-sm flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.events).slice(0, 2)" ng-click="showTabDialog($event, vm.event.id)">
 
    <md-card flex>
-     <!-- <img style="height: 300px; width: 100%" src="{{vm.event .cover_url}}" class="md-card-image"> -->
-     <img style="height: 300px; width: 100%" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url != null" src="{{vm.event.cover_url}}" class="md-card-image" alta="Washed Out">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{vm.event.title}}</span>
@@ -121,8 +123,8 @@
   <div hide show-md flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.events).slice(0, 2)" ng-click="showTabDialog($event, vm.event.id)">
 
    <md-card flex>
-     <!-- <img style="height: 300px; width: 100%" src="{{vm.event .cover_url}}" class="md-card-image"> -->
-     <img style="height: 300px; width: 100%" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url != null" src="{{vm.event.cover_url}}" class="md-card-image" alta="Washed Out">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{vm.event.title}}</span>
@@ -147,8 +149,8 @@
   <div hide show-xs flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.events).slice(0, 1)" ng-click="showTabDialog($event, vm.event.id)">
 
    <md-card flex>
-     <!-- <img style="height: 300px; width: 100%" src="{{vm.event .cover_url}}" class="md-card-image"> -->
-     <img style="height: 300px; width: 100%" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url != null" src="{{vm.event.cover_url}}" class="md-card-image" alta="Washed Out">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{vm.event.title}}</span>
@@ -208,11 +210,11 @@
     </md-card>
   </div> -->
 
-  <div hide show-xl flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 5)" ng-click="showTabDialog($event, vm.places.id)">
+  <div hide show-xl flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 5)" ng-click="showTabDialog($event, vm.place.id)">
 
    <md-card flex>
-     <!-- <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image"> -->
-     <img style="height: 300px; width: 100%" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image" alta="Washed Out">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{vm.place.title}}</span>
@@ -222,11 +224,11 @@
     </md-card>
   </div>
 
-  <div hide show-md flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 2)" ng-click="showTabDialog($event, vm.places.id)">
+  <div hide show-md flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 2)" ng-click="showTabDialog($event, vm.place.id)">
 
    <md-card flex>
-     <!-- <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image"> -->
-     <img style="height: 300px; width: 100%" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image" alta="Washed Out">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{vm.place.title}}</span>
@@ -236,11 +238,11 @@
     </md-card>
   </div>
 
-  <div hide show-xs flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 1)" ng-click="showTabDialog($event, vm.places.id)">
+  <div hide show-xs flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 1)" ng-click="showTabDialog($event, vm.place.id)">
 
    <md-card flex>
-     <!-- <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image"> -->
-     <img style="height: 300px; width: 100%" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image" alta="Washed Out">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{vm.place.title}}</span>
@@ -250,11 +252,11 @@
     </md-card>
   </div>
 
-  <div hide show-gt-md flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 3)" ng-click="showTabDialog($event, vm.places.id)">
+  <div hide show-gt-md flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 3)" ng-click="showTabDialog($event, vm.place.id)">
 
    <md-card flex>
-     <!-- <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image"> -->
-     <img style="height: 300px; width: 100%" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+     <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image" alta="Washed Out">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{vm.place.title}}</span>
@@ -264,12 +266,11 @@
     </md-card>
   </div>
 
-  <div hide show-sm flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 2)" ng-click="showTabDialog($event, vm.places.id)">
+  <div hide show-sm flex layout="column" style="margin-right:5px; margin-bottom:5px" ng-repeat="vm in (vm.places).slice(0, 2)" ng-click="showTabDialog($event, vm.place.id)">
 
    <md-card flex>
-     <!-- <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image"> -->
-     <img style="height: 300px; width: 100%" src="images/default-local.png" class="md-card-image" alta="Washed Out">
-      <md-card-title>
+    <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+    <img style="height: 300px; width: 100%" ng-show="vm.place.cover_url != null" src="{{vm.place.cover_url}}" class="md-card-image" alta="Washed Out">
         <md-card-title-text>
           <span class="md-headline">{{vm.place.title}}</span>
           <span class="md-subhead">{{vm.place.address}}</span>

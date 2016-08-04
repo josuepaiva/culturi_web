@@ -10,6 +10,7 @@
       // is that we implement getItemAtIndex and getLength.
       var ct = this;
       ct.citys = [];
+      var size = this;
 
       var DynamicItems = function() {
         /**
@@ -56,7 +57,7 @@
 
         console.log("Cities carregados",ct);
 
-        $timeout(angular.noop, 300).then(angular.bind(this, function() {
+        $timeout(angular.noop, 1000).then(angular.bind(this, function() {
           this.loadedPages[pageNumber] = [];
           var pageOffset = pageNumber * this.PAGE_SIZE;
           for (var i = pageOffset; i < pageOffset + this.PAGE_SIZE; i++) {
@@ -70,8 +71,14 @@
         // For demo purposes, we simulate loading the item count with a timed
         // promise. In real code, this function would likely contain an
         // $http request.
-        $timeout(angular.noop, 300).then(angular.bind(this, function() {
-          this.numItems = 2;
+        $timeout(angular.noop, 1000).then(angular.bind(this, function() {
+          
+          // eventService.getRankingCities().
+          // then(function(response){
+          //    return size = response.length;
+          // })
+          // console.log(size);
+          this.numItems = 25;
 
           }));
         };

@@ -6,29 +6,15 @@
 			<md-button class="buttom-map md-icon-button" aria-label="More">
         		<md-icon md-svg-icon="images/icons/ic_chevron_left_black_48px.svg"></md-icon>
       		</md-button>
-      		<!-- <md-card flex>
-				 <img src="images/lobao.jpg" class="md-card-image" alt="Washed Out">
-				 <md-card-title-text>
-			        <span class="md-headline">Lobão</span>
-			        <span class="md-subhead">Altas loucuras</span>
-			     </md-card-title-text>
-			     <
-			</md-card> -->
-
-
-				
-      		<!-- <md-card flex layout-fill flex="initial">
+      		<md-card flex layout-fill flex="initial">
 			    <img src="images/lobao.jpg" class="md-card-image" alta="Washed Out">
 			      <md-card-title>
 			        <md-card-title-text>
-			          <span class="md-headline">Lobão</span>
+			          <span class="md-headline">{{vm.events.title}}</span>
 			          <span class="md-subhead">Altas loucuras</span>
 			        </md-card-title-text>
 			      </md-card-title>
-			      <md-card-footer>
-				   	Card footer
-				  </md-card-footer>
-  			</md-card> -->
+  			</md-card>
 
 			<md-button class="buttom-map md-icon-button">
         		<md-icon md-svg-icon="images/icons/ic_chevron_right_black_48px.svg"></md-icon>
@@ -41,4 +27,4 @@
   ng-click="showFilter()">
     <md-icon md-svg-src="images/icons/filter-outline.svg"></md-icon>
   </md-button>
-
+{{vm.events}}

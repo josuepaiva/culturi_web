@@ -1,8 +1,8 @@
 <div layout="row" layout-xs="column" layout-wrap>
   <md-card href="#show" class="response-card" ng-repeat="vm in vm.events" ng-click="showTabDialog($event, vm.event.id)">
-    <!--<img style="height: 300px; width: 100%" ng-show="vm.event.cover_url != null" src={{vm.event.cover_url}} class="md-card-image" alt="Washed Out">-->
-    <!-- <img style="height: 300px; width: 100%" src="{{vm.event.cover_url}}" class="md-card-image"> -->
-    <img style="height: 300px; width: 100%" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+    <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url != null" src="{{vm.event.cover_url}}" class="md-card-image">
+    <img style="height: 300px; width: 100%" ng-show="vm.event.cover_url == null" src="images/default-local.png" class="md-card-image">
+    
     <!--<img  src="images/default-local.png" class="md-card-image" alt="Washed Out">-->
       <md-card-title>
         <md-card-title-text>

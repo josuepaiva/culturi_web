@@ -13,6 +13,8 @@
 		vm.events = [];
 
 
+		activate();
+		
 		 function activate() {
 
 	      return listEvents()

@@ -1,40 +1,26 @@
-<md-dialog>
-    <md-card flex layout-fill style="width: 100%;">
-    <img  ng-show="vm.event.cover_url != null" src={{vm.event.cover_url}} class="md-card-image" alt="Washed Out">
-    <img  ng-show="vm.event.cover_url == null"src="images/default-local.png" class="md-card-image" alt="Washed Out">
-      <md-card-content layout-xs="column">
-        <md-tabs md-border-bottom md-dynamic-height>
-        <md-tab layout-fill label="Informações">
+<md-dialog >
+  <form>
+    <md-toolbar style="max-height:200px;max-width:800px;">
+      <img  ng-show="vm.event.cover_url == null" src="images/default-local.png" class="md-card-image" alta="Washed Out">
+      <img  ng-show="vm.event.cover_url != null" src="{{vm.event.cover_url}}" class="md-card-image" alta="Washed Out">
+      <div class="md-toolbar-tools"></div>
+    </md-toolbar>
+
+    <md-dialog-content style="max-width:800px;max-height:400px; z-index: 999; overflow: hidden;">
+      <md-tabs md-border-bottom md-dynamic-height="false">
+        <md-tab label="Informações">
 
 
           <md-tab-label>
             <md-icon md-svg-icon="images/icons/ic_info_white_24px.svg"></md-icon>
-            <b class="textTab">Informações</b>
+            <b>Informações</b>
           </md-tab-label>
-            
-          <md-tab-body layout-xs="column">
-            <md-content class="md-padding" layout-xs="column">
-              <h1 ng-show='vm.event.id'> {{vm.event.title}}</h1>
-              <md-content layout-align="start end">
-                
-                <md-list layout-xs="column">
-                  <md-list-item class="md-3-line">
-                    <md-button class=" buttonDay md-raised md-primary" style="float: left;">Hoje</md-button>
-                    <p style="color:gray;">{{vm.event.address}}</p>
-                    <p style="color:gray; padding: 10px; position: absolute; right: 50px;">{{vm.event.owner.name}}</p>
-                    <img ng-src="images/ic.png" class="md-avatar"/>
-                  </md-list-item>
-                </md-list>
-                <md-divider ></md-divider>
-                <p>{{vm.event.description}}</p>
-                <md-divider ></md-divider>
-                <img style="float: right;" ng-src="images/icons/ic_whatshot_black_36px.svg">
-                <b>450</b>
-
-              </md-content>
-              
+          <md-tab-body>
+            <md-content class="md-padding">
+              <div event-show></div>
             </md-content>
           </md-tab-body>
+
 
         </md-tab>
         <md-tab label="Comentários">
@@ -42,36 +28,29 @@
 
           <md-tab-label>
             <md-icon md-svg-icon="images/icons/ic_mode_comment_white_24px.svg" style:"float:right;"></md-icon>
-            <b class="textTab">Comentários</b>
+            <b>Comentários</b>
           </md-tab-label>
           <md-tab-body>
             <md-content class="md-padding">
-              <p ng-show='vm.event.id'> Id{{vm.event.id}}</h1> </p>
-              <p ng-show='vm.event.title'> Title: {{vm.event.title}} </p>
-              <p ng-show='vm.event'> location: ARRAY </p>
-              <p ng-show='vm.event.description'> Description: {{vm.event.description}} </p>
-              <p ng-show='vm.event.min_price'> Min Price: {{vm.event.min_price}} </p>
-              <p ng-show='vm.event.max_price'> Max Price: {{vm.event.max_price}} </p>
-              <p ng-show='vm.event'> Payment: ARRAY </p>
-              <p ng-show='vm.event.payment_details'> Payment Details: {{vm.event.payment_details}} </p>
-              <p ng-show='vm.event.cover_url'> CoverURL: {{vm.event.cover_url}} </p>
-              <p ng-show='vm.event.address'> Address: {{vm.event.address}} </p>
-              <p ng-show='vm.event.district'> District: {{vm.event.district}} </p>
-              <p ng-show='vm.event.city'> City: {{vm.event.city}} </p>
-              <p ng-show='vm.event.initial_time'> Initial Time: {{vm.event.initial_time}} </p>
-              <p ng-show='vm.event.final_time'> Final Time: {{vm.event.final_time}} </p>
-              <p ng-show='vm.event.created_at'> Created At: {{vm.event.created_at}} </p>
-              <p ng-show='vm.event.updated_at'> Updated At: {{vm.event.updated_at}} </p>
-              <p ng-show='vm.event.score'> Score: {{vm.event.score}} </p>
-              <p ng-show='vm.event.is_system'> Is System: {{vm.event.is_system}} </p>
-              <p ng-show='vm.event.owner.name'> Owner.Name: {{vm.event.owner.name}} </p>
-              <p ng-show='vm.event.category.name'> Category.Name: {{vm.event.category.name}} </p>
-              <p ng-show='vm.event'> Photos: ARRAY </p>
+              <div event-show></div>
             </md-content>
           </md-tab-body>
 
+
         </md-tab>
-        </md-tabs>
-      </md-card-content>
-    </md-card>
+      </md-tabs>
+    </md-dialog-content>
+    <md-dialog-actions layout="row" style="max-width:800px;max-height:400px; z-index: 9999; overflow: hidden; background: white;">
+      <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+        More on Wikipedia
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="answer('not useful')" >
+        Not Useful
+      </md-button>
+      <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+        Useful
+      </md-button>
+    </md-dialog-actions>
+  </form>
 </md-dialog>

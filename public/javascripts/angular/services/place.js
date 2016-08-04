@@ -30,7 +30,6 @@
       
       // create a new instance of deferred
       var deferred = $q.defer();
-
       // Make an AJAX call get places
       $http.get(culturiURL.API_URL + culturiURL.CATEGORIE_URL + culturiURL.PLACE_ID + culturiURL.HERITAGE_URL)
         .success(getplacesComplete)

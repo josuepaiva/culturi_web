@@ -21,8 +21,8 @@
       <img ng-src="images/bigtoch.png"></img>
     </div>
       <md-card-content layout-align="left" class="md-padding">
-        <div layout="row" layout-align="left" class="mytocha"><h1>JOÃO PESSOA</h1></div>
-        <div layout="row" layout-align="left" class="points-card"><h2 class="points">125.457</h2></div>
+        <div layout="row" layout-align="left" class="mytocha"><h1>{{rank.city}}</h1></div>
+        <div layout="row" layout-align="left" class="points-card"><h2 class="points">{{rank.city}}</h2></div>
         <div layout="row" layout-align="left" class="shared"><p>COMPARTILHE</p></div>
         <div>
           <center>
@@ -83,13 +83,13 @@
             <b>CIDADE</b>
             <b style="float: right;">FOGO</b>
         </md-list>
-      <div md-virtual-repeat="item in rm2.dynamicItems" md-on-demand>
+      <div md-virtual-repeat="item2 in rm2.dynamicItems" md-on-demand>
         <md-list>
           <md-list-item>
           <!-- <b style="margin-right: 3%">{{item+1}}</b> -->
            <!-- <img ng-show="" ng-src="images/ic.png" class="md-avatar"/> -->
-           <p ng-show="item.city.city">{{item.city.city}}</p>
-           <b ng-show="item.city.score">{{item.city.score}}</b>
+           <p ng-show="item2.city.city">{{item2.city.city}}</p>
+           <b ng-show="item2.city.score">{{item2.city.score}}</b>
         </md-list-item>
         <md-divider ></md-divider>
       </md-list>

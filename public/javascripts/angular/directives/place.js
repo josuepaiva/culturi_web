@@ -1,8 +1,3 @@
-// Author - Laércio S Bezerra | laerciosouza@lavid.ufpb.br
-
-/* recommended */
-
-// place.js
 angular
   .module('culturi')
   .directive('placesList', placesList)

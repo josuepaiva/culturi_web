@@ -9,11 +9,11 @@ angular
   .module('culturi', ['ngRoute', 'ngMaterial','ngMessages','ngMap','ngFileUpload', 'ngCookies'])
   .run(['$http','$rootScope', '$location', 'userService', add_required_header])
   .constant('culturiURL', {
-      //PLACE_ID: '57233651938533059caaee8e/',
-      PLACE_ID: '57840161e3c5073e9a7a4841/',
-      //EVENT_ID: '57233652938533059caaee8f/',
-      EVENT_ID: '57840161e3c5073e9a7a4842/',
-      API_URL: 'https://tochabeta.api.culturi.com.br/api/',
+      PLACE_ID: '57233651938533059caaee8e/',
+      //PLACE_ID: '57840161e3c5073e9a7a4841/',
+      EVENT_ID: '57233652938533059caaee8f/',
+      //EVENT_ID: '57840161e3c5073e9a7a4842/',
+      API_URL: 'https://tocha.api.culturi.com.br/api/',
       CATEGORIE_URL: 'categories/',
       HERITAGE_URL:'heritages/',
       USERS_URL: 'ranking/users',
@@ -33,6 +33,7 @@ function config($routeProvider,$mdThemingProvider) {
     .when('/login', {
       templateUrl   : 'partials/login.html',
       controller    : 'authFacebook'
+
     })
     .when('/me', {
       templateUrl   : 'partials/users/show.html',
@@ -60,7 +61,8 @@ function config($routeProvider,$mdThemingProvider) {
     })
     .when('/map', {
       templateUrl   : 'partials/map/map.html',
-      controller    : 'filtroController'
+      controller    : 'mapController',
+      controllerAs  : 'vm'
     })
     .when('/form', {
       templateUrl   : 'partials/form.html',
@@ -110,8 +112,8 @@ window.fbAsyncInit = function() {
 
 // Add header required to all requests
 function add_required_header($http, $rootScope, $location, userService){
-  //$http.defaults.headers.common['X-Tocha-Key'] = '7594fe2eef4d998649d83648256fccbecdb3fed6ef8ebcc66deafc7d62f155b8691c8a73462357d6c8a5ceb3b63a4c3603bdd39194773e761bed6b75e574eebc';
-  $http.defaults.headers.common['X-Tocha-Key'] = 'TOCHABETA';
+  $http.defaults.headers.common['X-Tocha-Key'] = '7594fe2eef4d998649d83648256fccbecdb3fed6ef8ebcc66deafc7d62f155b8691c8a73462357d6c8a5ceb3b63a4c3603bdd39194773e761bed6b75e574eebc';
+  //$http.defaults.headers.common['X-Tocha-Key'] = 'TOCHABETA';
   $http.defaults.useXDomain = true;
 
   $rootScope.$on('$routeChangeStart', function(event, next, current){
@@ -126,7 +128,6 @@ function add_required_header($http, $rootScope, $location, userService){
     }
   })
 };
-
 
 // Verfify if user is logged in
 function checkLoggedin(userService, $http,$location){

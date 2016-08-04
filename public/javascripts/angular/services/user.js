@@ -20,7 +20,7 @@
     /* jshint validthis: true */
     const LOGIN_URL = '/login';
     const CURRENT_USER_URL = 'auth/facebook/callback';
-    const LOGGED_IN_URL = 'https://tochabeta.api.culturi.com.br/api/users/me';
+    const LOGGED_IN_URL = culturiURL.API_URL + '/users/me';
 
     // return available functions for use in the controllers
     return {

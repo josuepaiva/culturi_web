@@ -1,22 +1,45 @@
-<md-dialog >
-  <form>
-    <md-toolbar style="max-height:200px;max-width:800px;">
-      <img id="img_place_show" ng-src="images/museu.jpg" />
-      <div class="md-toolbar-tools"></div>
+<md-dialog flex>
+    <md-toolbar>
+      <img ng-show="vm.place.cover_url == null" id="img_place_show" ng-src="images/museu.jpg" alta="Washed Out" class="md-card-image" />
+      <img ng-show="vm.place.cover_url" id="img_place_show" ng-src="{{vm.place.cover_url}}" alta="Washed Out" class="md-card-image" />
+      <!-- <div class="md-toolbar-tools"></div> -->
     </md-toolbar>
 
-    <md-dialog-content style="max-width:800px;max-height:400px; z-index: 999; overflow: hidden;">
-      <md-tabs md-border-bottom md-dynamic-height="false">
+    <md-dialog-content style="z-index: 999; overflow: hidden;">
+      <md-tabs layout-xs="column" md-border-bottom md-dynamic-height="false">
+        <md-icon md-svg-icon="images/icons/ic_grade_black_24px.svg"></md-icon>
         <md-tab label="Informações">
-
 
           <md-tab-label>
             <md-icon md-svg-icon="images/icons/ic_info_white_24px.svg"></md-icon>
-            <b>Informações</b>
+            <b class="controlSize">Informações</b>
           </md-tab-label>
           <md-tab-body>
-            <md-content class="md-padding">
-              <div place-show></div>
+            <md-content  class="md-padding">
+              <div flex>
+                <h1 ng-show='vm.place.title'>{{vm.place.title}}</h1>
+                <div flex>
+                  Pof
+                </div>
+              </div>
+             
+              <!-- <p ng-show='vm.place.location'> location: {{vm.place.location}} </p>
+              <p ng-show='vm.place.description'> Description: {{vm.place.description}} </p>
+              <p ng-show='vm.place.min_price'> Min Price: {{vm.place.min_price}} </p>
+              <p ng-show='vm.place.max_price'> Max Price: {{vm.place.max_price}} </p>
+              <p ng-show='vm.place.payment_details'> Payment Details: {{vm.place.payment_details}} </p>
+              <p ng-show='vm.place.cover_url'> CoverURL: {{vm.place.cover_url}} </p>
+              <p ng-show='vm.place.address'> Address: {{vm.place.address}} </p>
+              <p ng-show='vm.place.district'> District: {{vm.place.district}} </p>
+              <p ng-show='vm.place.city'> City: {{vm.place.city}} </p>
+              <p ng-show='vm.place.initial_time'> Initial Time: {{vm.place.initial_time}} </p>
+              <p ng-show='vm.place.final_time'> Final Time: {{vm.place.final_time}} </p>
+              <p ng-show='vm.place.created_at'> Created At: {{vm.place.created_at}} </p>
+              <p ng-show='vm.place.updated_at'> Updated At: {{vm.place.updated_at}} </p>
+              <p ng-show='vm.place.score'> Score: {{vm.place.score}} </p>
+              <p ng-show='vm.place.is_system'> Is System: {{vm.place.is_system}} </p>
+              <p ng-show='vm.place.owner.name'> Owner.Name: {{vm.place.owner.name}} </p>
+              <p ng-show='vm.place.category.name'> Category.Name: {{vm.place.category.name}} </p> -->
             </md-content>
           </md-tab-body>
 
@@ -27,7 +50,7 @@
 
           <md-tab-label>
             <md-icon md-svg-icon="images/icons/ic_mode_comment_white_24px.svg" style:"float:right;"></md-icon>
-            <b>Comentários</b>
+            <b class="controlSize">Comentários</b>
           </md-tab-label>
           <md-tab-body>
             <md-content class="md-padding">
@@ -39,17 +62,4 @@
         </md-tab>
       </md-tabs>
     </md-dialog-content>
-    <md-dialog-actions layout="row" style="max-width:800px;max-height:400px; z-index: 9999; overflow: hidden; background: white;">
-      <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
-        More on Wikipedia
-      </md-button>
-      <span flex></span>
-      <md-button ng-click="answer('not useful')" >
-        Not Useful
-      </md-button>
-      <md-button ng-click="answer('useful')" style="margin-right:20px;" >
-        Useful
-      </md-button>
-    </md-dialog-actions>
-  </form>
 </md-dialog>
