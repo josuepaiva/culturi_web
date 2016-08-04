@@ -143,7 +143,6 @@ function checkLoggedin(userService, $http,$location){
 
 };
 
-
 function logout_user(userService){
   return userService.logout();
 };

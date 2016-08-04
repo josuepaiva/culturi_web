@@ -158,7 +158,7 @@
       $cookieStore.remove('access_token');
       $cookieStore.remove('access_email');
 
-      $http.delete("https://tochabeta.api.culturi.com.br/api/auth/logout").
+      $http.delete(culturiURL.API_URL + "/auth/logout").
         success(function(response){
           console.log(response);
           $location.path('/login');
