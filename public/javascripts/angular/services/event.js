@@ -22,8 +22,44 @@
       getEvents: getEvents,
       getEvent: getEvent,
       getRankingUsers: getRankingUsers,
-      getRankingCities: getRankingCities
+      getRankingCities: getRankingCities,
+      eventLike: eventLike,
+      eventDislike: eventDislike,
+      eventReport: eventReport,
+      eventQrcode: eventQrcode,
+      eventQrcod_png: eventQrcod_png,
+      eventShare: eventShare,
+      eventComments: eventComments,
+      getEventsProx
     });
+
+    function eventLike(){
+
+    };
+
+    function eventDislike(){
+
+    };
+
+    function eventReport(){
+
+    };
+
+    function eventQrcode(){
+
+    };
+
+    function eventQrcod_png(){
+
+    };
+
+    function eventShare(){
+
+    };
+
+    function eventComments(){
+
+    };
 
     ////////////
     function getRankingUsers(){
@@ -67,11 +103,53 @@
     // GET events on API
     function getEvents(){
       
+      var data = {
+       today: true
+      };
+
+      var config = {
+       params: data
+      };
+
       // create a new instance of deferred
       var deferred = $q.defer();
 
       // Make an AJAX call get events
-      $http.get(culturiURL.API_URL + culturiURL.CATEGORIE_URL + culturiURL.EVENT_ID + culturiURL.HERITAGE_URL)
+      $http.get(culturiURL.API_URL + culturiURL.CATEGORIE_URL + culturiURL.EVENT_ID + culturiURL.HERITAGE_URL,config)
+        .success(getEventsComplete)
+        .error(getEventsFailed);
+
+      return deferred.promise;
+
+      ////////////
+
+      function getEventsComplete(response) {
+        deferred.resolve(response);
+      };
+
+      function getEventsFailed(error) {
+        console.log('MSG: Error on eventService request - getEventsFailed - ERROR: '
+         + error.statusText + ' - STATUS: ' + error.status);
+      };
+    };
+
+
+
+    function getEventsProx(valor){
+      
+      var data = {
+       page: valor
+      };
+
+      var config = {
+       params: data
+      };
+
+      // create a new instance of deferred
+      var deferred = $q.defer();
+
+      // Make an AJAX call get events
+      $http.get(culturiURL.API_URL + culturiURL.CATEGORIE_URL + culturiURL.EVENT_ID + culturiURL.HERITAGE_URL,config)
         .success(getEventsComplete)
         .error(getEventsFailed);
 

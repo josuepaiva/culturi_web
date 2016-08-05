@@ -31,7 +31,9 @@
       setAccessToken: setAccessToken,
       setAccessEmail: setAccessEmail,
       getUserObj: getUserObj,
-      logout: logout
+      logout: logout,
+      getConvidado,
+      setConvidado
     };
 
     ////////////
@@ -160,16 +162,15 @@
 
       $http.delete(culturiURL.API_URL + "/auth/logout").
         success(function(response){
-          console.log(response);
-          $location.path('/login');
+          $location.url('/login');
+          $http.defaults.headers.common['X-User-Email'] = "";
+          $http.defaults.headers.common['X-User-Token'] = "";
           window.alert("logout com success");
         }).
         error(function(error){
           console.log("erro ");
         });
     };
-
-
 
   };
 })();

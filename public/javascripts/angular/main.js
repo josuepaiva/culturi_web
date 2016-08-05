@@ -20,7 +20,15 @@ angular
       CITIES_URL: 'ranking/cities',
       AUTH_URL: 'auth/',
       CALLBACK: 'callback/',
-      FACEBOOK_URL: 'facebook/'
+      FACEBOOK_URL: 'facebook/',
+      GOOGLEPLUS_URL: 'googleplus/',
+      EVENT_LIKE: 'like/',
+      EVENT_DISLIKE: 'dislike/',
+      EVENT_REPORT: 'report/',
+      EVENT_QRCODE: 'qrcode/',
+      EVENT_QRCODE_PNG: 'qrcode_png/',
+      EVENT_SHARE: 'share/',
+      EVENT_COMMENTS: 'comments/'
   })
   .config(config)
 
@@ -50,7 +58,7 @@ function config($routeProvider,$mdThemingProvider) {
     })
     .when('/places', {
       templateUrl   : 'partials/places/list.html',
-      controller    : 'eventsController',
+      controller    : 'placesController',
       controllerAs  : 'vm'
     })
     .when('/ranking', {
@@ -79,7 +87,17 @@ function config($routeProvider,$mdThemingProvider) {
   
 };
 
-var convidado = true;
+var convidado = false;
+var buttom_sair;
+
+
+function exibeButtomSair(){
+  buttom_sair = false;
+};
+
+function naoExibeButtomSair(){
+  buttom_sair = true;
+};
 
 
 function setConvidado(valor){
@@ -121,10 +139,10 @@ function add_required_header($http, $rootScope, $location, userService){
     if(next.$$route.authenticated){
         var token = userService.getAccessToken();
         var email = userService.getAccessEmail();
-
-         if(!token || !email){
-          $location.path("/login");
-        }
+        
+       if(!token || !email){
+        $location.path("/login");
+       }
     }
   })
 };
@@ -133,14 +151,17 @@ function add_required_header($http, $rootScope, $location, userService){
 function checkLoggedin(userService, $http,$location){
   var token = userService.getAccessToken();
   var email = userService.getAccessEmail();
+  var convidado = userService.getConvidado();
 
-  if(!token || !email){
-    $location.path("/login");
+  if(convidado){
+    setConvidado(true);
+  }else if(!token || !email){
+    $location.path("/login"); 
   }else{
+    setConvidado(false);
     $http.defaults.headers.common['X-User-Email'] = email;
     $http.defaults.headers.common['X-User-Token'] = token;
   }
-
 };
 
 function logout_user(userService){

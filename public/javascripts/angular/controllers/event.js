@@ -22,7 +22,7 @@
     /* jshint validthis: true */
     var vm = this;
     vm.events = [];
-    
+    $scope.page = 0;
     var location = window.location;
 
     if(location.hash == "#/"){
@@ -89,6 +89,28 @@
         clickOutsideToClose:true
       });
     };
+
+    $scope.proximo = function(){
+      $scope.page++;
+      vm.events = [];
+      eventService.getEventsProx($scope.page).
+        then(function(response){
+          angular.forEach(response, function(value){
+            vm.events.push({event: value});
+          })
+        });
+    };
+
+    $scope.anterior = function(){
+      $scope.page--;
+      vm.events = [];
+      eventService.getEventsProx($scope.page).
+        then(function(response){
+         angular.forEach(response, function(value){
+          vm.events.push({event: value});
+        })
+      });
+    }
 
   };
 

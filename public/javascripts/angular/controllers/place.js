@@ -4,7 +4,7 @@
 
 // place.js
 (function() {
-  //'use strict';
+  'use strict';
   
   angular
     .module('culturi')
@@ -22,8 +22,10 @@
     var vm = this;
     vm.places = [];
 
+
     // calling others submit function.
     $scope.showTabDialog = showTabDialog;
+    $scope.page = 0;
     
     // load automatically listplaces.
     activate();
@@ -61,6 +63,28 @@
         clickOutsideToClose:true
       });
     };
+
+    $scope.proximo = function(){
+      $scope.page++;
+      vm.places = [];
+      placeService.getPlacesProx($scope.page).
+        then(function(response){
+          angular.forEach(response, function(value){
+            vm.places.push({place: value});
+          })
+        });
+    };
+
+    $scope.anterior = function(){
+      $scope.page--;
+      vm.places = [];
+      placeService.getPlacesProx($scope.page).
+        then(function(response){
+         angular.forEach(response, function(value){
+          vm.places.push({place: value});
+        })
+      });
+    }
 
   };
 
